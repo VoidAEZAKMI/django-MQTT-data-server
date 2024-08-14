@@ -14,6 +14,9 @@ from pathlib import Path
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 
+from django.core.management.utils import get_random_secret_key
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,21 +25,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
+# SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
+#
+# with open(SECRET_FILE) as f:
+#     secrets = json.loads(f.read())
+#
+# def get_secret(setting, secrets=secrets):
+#     """Get the secret variable or return explicit exception."""
+#     try:
+#         return secrets[setting]
+#     except KeyError:
+#         error_msg = "Set the {} environment variable".format(setting)
+#         raise ImproperlyConfigured(error_msg)
 
-with open(SECRET_FILE) as f:
-    secrets = json.loads(f.read())
-
-def get_secret(setting, secrets=secrets):
-    """Get the secret variable or return explicit exception."""
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
-
+SECRET_KEY = get_random_secret_key()
+#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

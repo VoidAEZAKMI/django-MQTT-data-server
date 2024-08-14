@@ -30,14 +30,14 @@
             },
   
             title: { 
-              text: '온, 습도 정보' 
-            }, 
-  
+              text: 'Информация о температуре и влажности'
+            },
+
             rangeSelector: {
               selected: 5,
               inputEnabled: false
             },
-  
+
             xAxis: {
               type: 'datetime',
               labels:{
@@ -47,7 +47,7 @@
                 step: 3
               }
             },
-  
+
             yAxis: {
               labels: {
                 format: '{value}p',
@@ -57,35 +57,35 @@
                 x: 30,
               },
               opposite: false,
-              tickInterval: 50,   
+              tickInterval: 50,
             },
-  
+
             tooltip: {
               xDateFormat: '%Y-%m-%d %H:%M:%S',
               split: true
             },
-  
+
             series: [{
-                name: '온도',          
+                name: 'Температура',
                 data: data.temperature,
                 color: 'rgba(0,200,0,.6)',
                 lineWidth: 2
-            }, 
+            },
             {
-                name: '습도',          
+                name: 'Влажность',
                 data: data.humidity,
                 lineWidth: 3
             }],
-  
+
             legend: {
-              enabled: true, 
+              enabled: true,
               align: 'left',
               verticalAlign: 'top',
               floating: true,
               x: 30,
               y: 70
             },
-            
+
             responsive: {
               rules: [{
                 condition: {
@@ -104,6 +104,6 @@
           });
         }
       });
-  
+
     </script>
   </div>

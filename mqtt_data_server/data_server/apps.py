@@ -7,4 +7,4 @@ class DataServerConfig(AppConfig):
     name = 'data_server'
 
     def ready(self) -> None:
-        mqtt.MqttThread("192.168.0.11", 1883, 60, ["test"]).start()
+        mqtt.MqttThread("35.225.1.29", 1883, 60, ["test/1"]).start()
